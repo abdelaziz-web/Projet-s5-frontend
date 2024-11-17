@@ -29,7 +29,7 @@ export function Navbar() {
 
         {user ? (
           <div className="flex items-center space-x-4">
-            <span className="text-white">{user.name}</span>
+            <span className="text-white">{user.firstName}</span>
             <button
               onClick={handleLogout}
               className="flex items-center space-x-1 text-white hover:text-green-400 transition"
