@@ -18,13 +18,16 @@ export function Navbar() {
         <Dribbble className="h-8 w-8" />
         <span className="text-2xl font-bold">ProLeague</span>
       </Link>
-      
+
       <div className="flex items-center space-x-6">
         <div className="flex space-x-6 text-white">
           <Link to="#" className="hover:text-green-400 transition">Matches</Link>
+          <Link to="#" className="hover:text-green-400 transition">Forum</Link>
           <Link to="#" className="hover:text-green-400 transition">Teams</Link>
           <Link to="#" className="hover:text-green-400 transition">News</Link>
+          <Link to="/streaming" className="hover:text-green-400 transition">TV</Link>
           <Link to="#" className="hover:text-green-400 transition">Statistics</Link>
+
         </div>
 
         {user ? (

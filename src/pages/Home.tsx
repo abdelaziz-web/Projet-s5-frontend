@@ -46,19 +46,19 @@ function Home() {
 
   const news = [
     {
-      imageUrl: 'https://images.unsplash.com/photo-1508098682722-e99c43a406b2?auto=format&fit=crop&q=80',
-      title: 'Championship Title Race Heats Up',
-      excerpt: 'The battle for the championship intensifies as top teams clash in crucial matches...',
+      imageUrl: 'https://www.barlamantoday.com/wp-content/uploads/2024/11/AFCON-Qualifier-Morocco-Dominate-Gabon-3-1.jpeg',
+      title: 'Morocco Beats Gabon 5-1 to Stay Top of Group B in AFCON Qualifiers',
+      excerpt: 'Morocco Beats Gabon 5-1 to Stay Top of Group B in AFCON Qualifiers...',
     },
     {
-      imageUrl: 'https://images.unsplash.com/photo-1517466787929-bc90951d0974?auto=format&fit=crop&q=80',
-      title: 'Rising Star Makes International Debut',
-      excerpt: 'Young talent impresses in first international appearance with stunning performance...',
+      imageUrl: 'https://image-service.onefootball.com/transform?w=840&h=630&dpr=2&image=https%3A%2F%2Ffilebucket.onefootball.com%2F2024%2F11%2F1731771923953-blob',
+      title: 'What Messi called the referee in Argentina\'s shock Paraguay defeat',
+      excerpt: 'World Cup and Copa America holders Argentina suffered a shock defeat at home against Paraguay on Thursday night....',
     },
     {
-      imageUrl: 'https://images.unsplash.com/photo-1579952363873-27f3bade9f55?auto=format&fit=crop&q=80',
-      title: 'Transfer Window Drama Unfolds',
-      excerpt: 'Major clubs compete for signature of sought-after striker as deadline approaches...',
+      imageUrl: 'https://image-service.onefootball.com/transform?w=840&h=630&dpr=2&image=https%3A%2F%2Ffilebucket.onefootball.com%2F2024%2F11%2F1731786813380-blob',
+      title: 'Musiala scores another header to give Germany early lead against Bosnia',
+      excerpt: 'Jamal Musiala might be better known for his tricky feet, but he is quicky becoming just as good with his head....',
     },
   ];
 
