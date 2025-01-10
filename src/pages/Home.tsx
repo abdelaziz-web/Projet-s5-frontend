@@ -81,7 +81,6 @@ function Home() {
     return () => clearInterval(interval);
   }, []);
 
-  // Auto-scroll effect
   useEffect(() => {
     if (matches.length > matchesPerPage && !isPaused) {
       const timer = setInterval(() => {
@@ -109,6 +108,7 @@ function Home() {
         onMouseEnter={() => setIsPaused(true)}
         onMouseLeave={() => setIsPaused(false)}
       >
+        {/* Header Section */}
         <div className="flex justify-between items-center mb-8">
           <h2 className="text-3xl font-bold text-white">Latest Matches</h2>
           <div className="flex items-center gap-2">
@@ -143,10 +143,11 @@ function Home() {
           </div>
         </div>
 
+        {/* Matches Display Section */}
         {isLoading ? (
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
             {[1, 2, 3].map((i) => (
-              <div key={i} className="animate-pulse bg-green-800/20 h-40 rounded-lg" />
+              <div key={i} className="animate-pulse bg-green-800/20 h-60 rounded-lg" />
             ))}
           </div>
         ) : error ? (
@@ -155,50 +156,74 @@ function Home() {
           <div className="text-white text-center py-8">No live matches available</div>
         ) : (
           <div className="relative overflow-hidden">
-            <div 
-              className="grid grid-cols-1 md:grid-cols-3 gap-6 transition-all duration-500 ease-in-out"
-              style={{ 
-                transform: `translateX(-${currentPage * 100}%)`,
-                width: `${totalPages * 100}%`
-              }}
-            >
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
               {visibleMatches.map((match) => (
-                <div key={match.fixture.id} className="bg-green-800/30 p-4 rounded-lg">
-                  <div className="text-green-300 text-sm mb-2">{match.league.name}</div>
-                  <div className="flex flex-col space-y-4">
-                    <div className="flex items-center justify-between">
-                      <div className="flex items-center space-x-2">
+                <div 
+                  key={match.fixture.id} 
+                  className="bg-green-800/30 p-6 rounded-lg shadow-lg hover:bg-green-800/40 transition-all"
+                >
+                  {/* League Header */}
+                  <div className="flex items-center gap-2 mb-4">
+                    {match.league.logo && (
+                      <img 
+                        src={match.league.logo} 
+                        alt={match.league.name} 
+                        className="w-6 h-6 object-contain"
+                      />
+                    )}
+                    <div className="text-green-300 font-medium">{match.league.name}</div>
+                  </div>
+
+                  {/* Teams and Scores */}
+                  <div className="space-y-4">
+                    {/* Home Team */}
+                    <div className="flex items-center justify-between bg-green-900/30 p-3 rounded">
+                      <div className="flex items-center gap-3 flex-1">
                         {match.teams.home.logo && (
                           <img 
                             src={match.teams.home.logo} 
                             alt={match.teams.home.name} 
-                            className="w-6 h-6"
+                            className="w-8 h-8 object-contain"
                           />
                         )}
-                        <span className="text-white">{match.teams.home.name}</span>
+                        <span className="text-white font-medium text-lg truncate">
+                          {match.teams.home.name}
+                        </span>
                       </div>
-                      <span className="text-white font-bold">{match.goals.home}</span>
+                      <span className="text-white font-bold text-xl min-w-[30px] text-center">
+                        {match.goals.home}
+                      </span>
                     </div>
-                    <div className="flex items-center justify-between">
-                      <div className="flex items-center space-x-2">
+
+                    {/* Away Team */}
+                    <div className="flex items-center justify-between bg-green-900/30 p-3 rounded">
+                      <div className="flex items-center gap-3 flex-1">
                         {match.teams.away.logo && (
                           <img 
                             src={match.teams.away.logo} 
                             alt={match.teams.away.name} 
-                            className="w-6 h-6"
+                            className="w-8 h-8 object-contain"
                           />
                         )}
-                        <span className="text-white">{match.teams.away.name}</span>
+                        <span className="text-white font-medium text-lg truncate">
+                          {match.teams.away.name}
+                        </span>
                       </div>
-                      <span className="text-white font-bold">{match.goals.away}</span>
+                      <span className="text-white font-bold text-xl min-w-[30px] text-center">
+                        {match.goals.away}
+                      </span>
                     </div>
                   </div>
-                  <div className="mt-2 text-xs text-green-400">
+
+                  {/* Match Status */}
+                  <div className="mt-4 text-sm font-medium text-green-400 bg-green-900/20 px-3 py-1 rounded-full inline-block">
                     {match.fixture.status.long}
                   </div>
                 </div>
               ))}
             </div>
+
+            {/* Pagination Dots */}
             {totalPages > 1 && (
               <div className="flex justify-center mt-6 gap-2">
                 {Array.from({ length: totalPages }).map((_, index) => (
@@ -223,6 +248,7 @@ function Home() {
 
       <StatsSection />
 
+      {/* News Section */}
       <section className="max-w-6xl mx-auto px-6 py-16">
         <div className="flex justify-between items-center mb-8">
           <h2 className="text-3xl font-bold text-white">Latest News</h2>

@@ -55,26 +55,27 @@ function Login() {
     }
   };
 
-  const handleSubmit = async (e: React.FormEvent) => {
-    e.preventDefault();
-    
-    if (!validateForm()) {
+  // Inside your handleSubmit function in Login.tsx
+const handleSubmit = async (e: React.FormEvent) => {
+  e.preventDefault();
+  
+  if (!validateForm()) {
       toast.error('Please correct the errors in the form');
       return;
-    }
+  }
 
-    try {
+  try {
       await login(formData.email, formData.password);
       toast.success('Welcome back!');
-      navigate('/');
-    } catch (error) {
+      navigate('/streaming'); // Changed from '/' to '/streaming'
+  } catch (error) {
       toast.error('Invalid credentials');
       setErrors({
-        email: 'Invalid email or password',
-        password: 'Invalid email or password'
+          email: 'Invalid email or password',
+          password: 'Invalid email or password'
       });
-    }
-  };
+  }
+};
 
   const renderFieldError = (fieldName: keyof FormErrors) => {
     return errors[fieldName] ? (
